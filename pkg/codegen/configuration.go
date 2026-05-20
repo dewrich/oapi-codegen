@@ -163,6 +163,7 @@ func (g GenerateOptions) RouterImports() []AdditionalImport {
 		imports = append(imports, AdditionalImport{Package: "github.com/gorilla/mux"})
 	case g.FiberServer:
 		imports = append(imports, AdditionalImport{Package: "github.com/gofiber/fiber/v2"})
+		imports = append(imports, AdditionalImport{Alias: "fibermid", Package: "github.com/dewrich/oapi-codegen/v2/pkg/fibermid"})
 	case g.IrisServer:
 		imports = append(imports, AdditionalImport{Package: "github.com/kataras/iris/v12"})
 		imports = append(imports, AdditionalImport{Package: "github.com/kataras/iris/v12/core/router"})
@@ -350,9 +351,6 @@ type OutputOptions struct {
 	// Currently supports:
 	//   "array"
 	DisableTypeAliasesForType []string `yaml:"disable-type-aliases-for-type"`
-
-	// SkipResponseBodyGetters decides whether to generate getter methods for response bodies.
-	SkipResponseBodyGetters bool `yaml:"skip-response-body-getters,omitempty"`
 
 	// NameNormalizer is the method used to normalize Go names and types, for instance converting the text `MyApi` to `MyAPI`. Corresponds with the constants defined for `codegen.NameNormalizerFunction`
 	NameNormalizer string `yaml:"name-normalizer,omitempty"`
