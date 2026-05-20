@@ -15,10 +15,10 @@ import (
 	"path"
 	"strings"
 
+	externalRef0 "github.com/dewrich/oapi-codegen/v2/internal/test/issues/issue-1378/common"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/gorilla/mux"
 	"github.com/oapi-codegen/runtime"
-	externalRef0 "github.com/dewrich/oapi-codegen/v2/internal/test/issues/issue-1378/common"
 )
 
 // Bionicle defines model for Bionicle.

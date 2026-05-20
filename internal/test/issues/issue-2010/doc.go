@@ -1,4 +1,4 @@
-// Regression fixture for https://github.com/oapi-codegen/oapi-codegen/issues/2010.
+// Regression fixture for https://github.com/dewrich/oapi-codegen/issues/2010.
 //
 // The base spec defines components/responses/400 with a JSON body. The "other"
 // spec references that response via an external $ref. With strict-server

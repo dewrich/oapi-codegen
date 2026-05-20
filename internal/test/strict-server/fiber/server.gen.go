@@ -18,10 +18,10 @@ import (
 	"path"
 	"strings"
 
+	fibermid "github.com/dewrich/oapi-codegen/v2/pkg/fibermid"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/gofiber/fiber/v2"
 	"github.com/oapi-codegen/runtime"
-	fibermid "github.com/dewrich/oapi-codegen/v2/pkg/fibermid"
 )
 
 // ServerInterface represents all server handlers.

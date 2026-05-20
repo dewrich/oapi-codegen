@@ -12,8 +12,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/getkin/kin-openapi/openapi3"
 	externalRef0 "github.com/dewrich/oapi-codegen/v2/internal/test/externalref/packageB"
+	"github.com/getkin/kin-openapi/openapi3"
 )
 
 // EnrichedUser defines model for EnrichedUser.

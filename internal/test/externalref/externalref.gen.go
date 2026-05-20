@@ -12,10 +12,10 @@ import (
 	"path"
 	"strings"
 
-	"github.com/getkin/kin-openapi/openapi3"
 	externalRef0 "github.com/dewrich/oapi-codegen/v2/internal/test/externalref/packageA"
 	package_b "github.com/dewrich/oapi-codegen/v2/internal/test/externalref/packageB"
 	externalRef1 "github.com/dewrich/oapi-codegen/v2/internal/test/externalref/petstore"
+	"github.com/getkin/kin-openapi/openapi3"
 )
 
 // Container defines model for Container.

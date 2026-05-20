@@ -12,8 +12,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/go-chi/chi/v5"
 	externalRef0 "github.com/dewrich/oapi-codegen/v2/internal/test/issues/issue-1087/deps"
+	"github.com/go-chi/chi/v5"
 )
 
 // Thing defines model for Thing.
@@ -207,6 +207,36 @@ type GetThingsResponse struct {
 	JSON403      *externalRef0.N403
 	JSON404      *N404
 	JSON500      *externalRef0.DefaultError
+}
+
+// GetJSON200 returns JSON200
+func (r GetThingsResponse) GetJSON200() *ThingResponse {
+	return r.JSON200
+}
+
+// GetJSON401 returns JSON401
+func (r GetThingsResponse) GetJSON401() *externalRef0.N401 {
+	return r.JSON401
+}
+
+// GetJSON403 returns JSON403
+func (r GetThingsResponse) GetJSON403() *externalRef0.N403 {
+	return r.JSON403
+}
+
+// GetJSON404 returns JSON404
+func (r GetThingsResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON500 returns JSON500
+func (r GetThingsResponse) GetJSON500() *externalRef0.DefaultError {
+	return r.JSON500
+}
+
+// GetBody returns the raw response body bytes (Body)
+func (r GetThingsResponse) GetBody() []byte {
+	return r.Body
 }
 
 // Status returns HTTPResponse.Status

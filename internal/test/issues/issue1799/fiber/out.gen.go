@@ -10,8 +10,8 @@ import (
 	"io"
 	"strings"
 
-	"github.com/gofiber/fiber/v2"
 	fibermid "github.com/dewrich/oapi-codegen/v2/pkg/fibermid"
+	"github.com/gofiber/fiber/v2"
 )
 
 // PostPostMultibodyApplicationLdPlusJSONProfilehttpswwwW3OrgnsactivitystreamsBody defines parameters for PostPostMultibody.

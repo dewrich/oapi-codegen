@@ -4,8 +4,8 @@
 package issue1469
 
 import (
-	"github.com/gofiber/fiber/v2"
 	fibermid "github.com/dewrich/oapi-codegen/v2/pkg/fibermid"
+	"github.com/gofiber/fiber/v2"
 )
 
 // ServerInterface represents all server handlers.

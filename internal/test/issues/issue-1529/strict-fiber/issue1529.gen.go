@@ -16,9 +16,9 @@ import (
 	"path"
 	"strings"
 
+	fibermid "github.com/dewrich/oapi-codegen/v2/pkg/fibermid"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/gofiber/fiber/v2"
-	fibermid "github.com/dewrich/oapi-codegen/v2/pkg/fibermid"
 )
 
 // Test defines model for Test.
@@ -193,6 +193,26 @@ type TestResponse struct {
 	JSON200                      *Test
 	ApplicationjsonProfileBar200 *Test
 	ApplicationjsonProfileFoo200 *Test
+}
+
+// GetJSON200 returns JSON200
+func (r TestResponse) GetJSON200() *Test {
+	return r.JSON200
+}
+
+// GetApplicationjsonProfileBar200 returns ApplicationjsonProfileBar200
+func (r TestResponse) GetApplicationjsonProfileBar200() *Test {
+	return r.ApplicationjsonProfileBar200
+}
+
+// GetApplicationjsonProfileFoo200 returns ApplicationjsonProfileFoo200
+func (r TestResponse) GetApplicationjsonProfileFoo200() *Test {
+	return r.ApplicationjsonProfileFoo200
+}
+
+// GetBody returns the raw response body bytes (Body)
+func (r TestResponse) GetBody() []byte {
+	return r.Body
 }
 
 // Status returns HTTPResponse.Status

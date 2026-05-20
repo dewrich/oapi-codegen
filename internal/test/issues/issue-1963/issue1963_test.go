@@ -18,7 +18,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// These tests are regression tests for https://github.com/oapi-codegen/oapi-codegen/issues/1963.
+// These tests are regression tests for https://github.com/dewrich/oapi-codegen/issues/1963.
 //
 // The issue: in generated strict server Visit*Response functions, WriteHeader
 // was called before marshalling the response body. If JSON encoding failed,

@@ -177,7 +177,7 @@ func valueWithPropagatedRef(ref *openapi3.SchemaRef) (openapi3.Schema, error) {
 // qualified with the remote component path. This is needed so that when an
 // external schema is flattened via allOf, nested type references (array items,
 // additionalProperties, sub-object properties) retain their external
-// qualification. See https://github.com/oapi-codegen/oapi-codegen/issues/2288
+// qualification. See https://github.com/dewrich/oapi-codegen/issues/2288
 func propagateRemoteRefs(remoteComponent string, schema *openapi3.Schema) {
 	for _, value := range schema.Properties {
 		if len(value.Ref) > 0 && value.Ref[0] == '#' {
@@ -407,7 +407,7 @@ func equalTypes(t1 *openapi3.Types, t2 *openapi3.Types) bool {
 		return false
 	}
 
-	// NOTE that ideally we'd use `slices.Equal` but as we're currently supporting Go 1.20+, we can't use it (yet https://github.com/oapi-codegen/oapi-codegen/issues/1634)
+	// NOTE that ideally we'd use `slices.Equal` but as we're currently supporting Go 1.20+, we can't use it (yet https://github.com/dewrich/oapi-codegen/issues/1634)
 	for i := range s1 {
 		if s1[i] != s2[i] {
 			return false

@@ -14,7 +14,7 @@ const {{ .GoName}} = "{{ .OAPISchema.URL }}"
     For each USED variable, emit any inline declarations server-urls.tmpl
     is still responsible for. Variables declared but not referenced by
     a `{name}` placeholder in the URL are filtered out earlier
-    (https://github.com/oapi-codegen/oapi-codegen/issues/2004) so we
+    (https://github.com/dewrich/oapi-codegen/issues/2004) so we
     don't generate types/consts/params that the function would never
     use.
 

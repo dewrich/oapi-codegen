@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-chi/chi/v5"
 	externalRef0 "github.com/dewrich/oapi-codegen/v2/internal/test/issues/issue-2113/gen/common"
+	"github.com/go-chi/chi/v5"
 )
 
 // ServerInterface represents all server handlers.

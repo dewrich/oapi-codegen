@@ -13,10 +13,10 @@ import (
 	"path"
 	"strings"
 
+	. "github.com/dewrich/oapi-codegen/v2/examples/petstore-expanded/echo/api/models"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/labstack/echo/v4"
 	"github.com/oapi-codegen/runtime"
-	. "github.com/dewrich/oapi-codegen/v2/examples/petstore-expanded/echo/api/models"
 )
 
 // ServerInterface represents all server handlers.

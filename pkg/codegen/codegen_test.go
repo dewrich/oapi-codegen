@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	remoteRefFile = `https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/master/examples/petstore-expanded` +
+	remoteRefFile = `https://raw.githubusercontent.com/dewrich/oapi-codegen/master/examples/petstore-expanded` +
 		`/petstore-expanded.yaml`
 	remoteRefImport = `github.com/dewrich/oapi-codegen/v2/examples/petstore-expanded`
 )
@@ -270,7 +270,7 @@ func (t *ExampleSchema_Item) FromExternalRef0NewPet(v externalRef0.NewPet) error
 }
 
 func TestDuplicatePathParameter(t *testing.T) {
-	// Regression test for https://github.com/oapi-codegen/oapi-codegen/issues/1574
+	// Regression test for https://github.com/dewrich/oapi-codegen/issues/1574
 	// Some real-world specs (e.g. Keycloak) have paths where the same parameter
 	// appears more than once: /clients/{client-uuid}/.../clients/{client-uuid}
 	spec := `

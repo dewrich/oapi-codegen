@@ -10,7 +10,7 @@ import (
 
 // TestGetTest401TextResponse verifies that the generated VisitGetTestResponse
 // method on GetTest401TextResponse produces a valid text/plain 401 response.
-// This is a regression test for https://github.com/oapi-codegen/oapi-codegen/issues/2190
+// This is a regression test for https://github.com/dewrich/oapi-codegen/issues/2190
 // where the generated code tried to do []byte(response) on a struct type,
 // which does not compile.
 func TestGetTest401TextResponse(t *testing.T) {

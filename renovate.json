@@ -39,7 +39,7 @@
 		{
 			"description": "Don't attempt to bump `replace` statements for internal modules",
 			"matchDepNames": [
-				"github.com/oapi-codegen/oapi-codegen/v2"
+				"github.com/dewrich/oapi-codegen/v2"
 			],
 			"matchCurrentVersion": "v2.0.0-00010101000000-000000000000",
 			"enabled": false
@@ -47,7 +47,7 @@
 		{
 			"description": "Don't attempt to bump `replace` statements for internal modules",
 			"matchDepNames": [
-				"github.com/oapi-codegen/oapi-codegen/v2/internal/test"
+				"github.com/dewrich/oapi-codegen/v2/internal/test"
 			],
 			"matchCurrentVersion": "v0.0.0-00010101000000-000000000000",
 			"enabled": false
@@ -77,9 +77,9 @@
 				"README.md"
 			],
 			"matchStrings": [
-				"# yaml-language-server: \\$schema=https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/(?<currentValue>[^/]+)/configuration-schema.json"
+				"# yaml-language-server: \\$schema=https://raw.githubusercontent.com/dewrich/oapi-codegen/(?<currentValue>[^/]+)/configuration-schema.json"
 			],
-			"depNameTemplate": "github.com/oapi-codegen/oapi-codegen/v2",
+			"depNameTemplate": "github.com/dewrich/oapi-codegen/v2",
 			"datasourceTemplate": "go"
 		}
 	]

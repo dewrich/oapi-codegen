@@ -11,7 +11,7 @@ import (
 // TestExtraTagsOnQueryParams verifies that x-oapi-codegen-extra-tags is applied
 // to query parameter struct fields regardless of whether the extension is placed
 // at the parameter level or at the schema level within the parameter.
-// This is a regression test for https://github.com/oapi-codegen/oapi-codegen/issues/2232
+// This is a regression test for https://github.com/dewrich/oapi-codegen/issues/2232
 func TestExtraTagsOnQueryParams(t *testing.T) {
 	paramType := reflect.TypeOf(GetEndpointParams{})
 

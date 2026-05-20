@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-chi/chi/v5"
 	externalRef0 "github.com/dewrich/oapi-codegen/v2/internal/test/issues/issue-removed-external-ref/gen/spec_ext"
+	"github.com/go-chi/chi/v5"
 )
 
 // DirectBar defines model for DirectBar.
