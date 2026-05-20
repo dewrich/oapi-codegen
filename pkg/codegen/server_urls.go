@@ -49,7 +49,7 @@ type ServerObjectDefinition struct {
 // `{name}` placeholder actually appears in OAPISchema.URL. Variables
 // declared but unused are skipped — they would otherwise produce a
 // type, constant, function parameter, and a no-op `strings.ReplaceAll`
-// (https://github.com/oapi-codegen/oapi-codegen/issues/2004). Used by
+// (https://github.com/dewrich/oapi-codegen/issues/2004). Used by
 // both server-urls.tmpl and BuildServerURLTypeDefinitions so that
 // emitted types and the generated function signature stay in sync.
 func (s ServerObjectDefinition) UsedVariables() map[string]*openapi3.ServerVariable {
@@ -73,7 +73,7 @@ func (s ServerObjectDefinition) UsedVariables() map[string]*openapi3.ServerVaria
 // any undeclared placeholder remained in the URL after substitution
 // and the trailing `{`/`}` runtime check tripped on every call —
 // making the generated function permanently unusable
-// (https://github.com/oapi-codegen/oapi-codegen/issues/2005). The
+// (https://github.com/dewrich/oapi-codegen/issues/2005). The
 // template now adds these as plain `string` parameters so callers
 // can fill them in directly.
 func (s ServerObjectDefinition) UndeclaredPlaceholders() []string {
@@ -361,7 +361,7 @@ func BuildServerURLTypeDefinitions(spec *openapi3.T) ([]TypeDefinition, error) {
 			// blindly and emitted a const referencing an
 			// undeclared identifier when the spec violated the
 			// rule, producing a confusing user-side compile error
-			// (https://github.com/oapi-codegen/oapi-codegen/issues/2007).
+			// (https://github.com/dewrich/oapi-codegen/issues/2007).
 			// Catch the violation at codegen time so the user sees
 			// a clear message pointing at their spec.
 			if v.Default != "" {

@@ -1,13 +1,13 @@
 # Support model
 
-[`oapi-codegen`](https://github.com/oapi-codegen/oapi-codegen) is currently supported in a best-efforts means, due to the [Core Maintainers](https://github.com/oapi-codegen/governance/#core-maintainer) working in their "off hours" from their busy jobs.
+[`oapi-codegen`](https://github.com/dewrich/oapi-codegen) is currently supported in a best-efforts means, due to the [Core Maintainers](https://github.com/oapi-codegen/governance/#core-maintainer) working in their "off hours" from their busy jobs.
 
 We do thoroughly appreciate our users, the feature requests and bug reports raised, and want to set expectations accordingly.
 
 Related:
 
-- [Creating a more sustainable model for `oapi-codegen` in the future](https://github.com/oapi-codegen/oapi-codegen/discussions/1606)
-- [Looking back at `oapi-codegen`'s last year](https://github.com/oapi-codegen/oapi-codegen/discussions/1985)
+- [Creating a more sustainable model for `oapi-codegen` in the future](https://github.com/dewrich/oapi-codegen/discussions/1606)
+- [Looking back at `oapi-codegen`'s last year](https://github.com/dewrich/oapi-codegen/discussions/1985)
 
 ## Supported versions
 
@@ -21,7 +21,7 @@ Related: [`oapi-codegen`'s organisational security policy (`SECURITY.md`)](https
 
 ## Minimum required Go toolchain version
 
-As per [the install instructions](https://github.com/oapi-codegen/oapi-codegen/#install), `oapi-codegen`'s recommended installation model is as a source-tracked dependency, for instance using `go tool`.
+As per [the install instructions](https://github.com/dewrich/oapi-codegen/#install), `oapi-codegen`'s recommended installation model is as a source-tracked dependency, for instance using `go tool`.
 
 Because of this, we take more care to resist bumping the `go` directive, as it has a knock-on effect for all consumers of `oapi-codegen`, as it requires the consumer to _also_ bump their `go` directive.
 
@@ -38,4 +38,4 @@ We will not mandate a `toolchain` directive.
 
 ## Additional support
 
-For additional support, it's worth reading [oapi-codegen/governance: Sponsorship](https://github.com/oapi-codegen/governance/#sponsorship), and visiting the different [funding options](https://github.com/oapi-codegen/oapi-codegen/blob/main/.github/FUNDING.yml).
+For additional support, it's worth reading [oapi-codegen/governance: Sponsorship](https://github.com/oapi-codegen/governance/#sponsorship), and visiting the different [funding options](https://github.com/dewrich/oapi-codegen/blob/main/.github/FUNDING.yml).

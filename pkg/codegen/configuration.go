@@ -163,6 +163,7 @@ func (g GenerateOptions) RouterImports() []AdditionalImport {
 		imports = append(imports, AdditionalImport{Package: "github.com/gorilla/mux"})
 	case g.FiberServer:
 		imports = append(imports, AdditionalImport{Package: "github.com/gofiber/fiber/v2"})
+		imports = append(imports, AdditionalImport{Alias: "fibermid", Package: "github.com/dewrich/oapi-codegen/v2/pkg/fibermid"})
 	case g.IrisServer:
 		imports = append(imports, AdditionalImport{Package: "github.com/kataras/iris/v12"})
 		imports = append(imports, AdditionalImport{Package: "github.com/kataras/iris/v12/core/router"})
@@ -213,7 +214,7 @@ type CompatibilityOptions struct {
 	// `allOf` merges at the schema definition level, not at the resulting model
 	// level. So, new behavior merges OpenAPI specs but generates different code
 	// than we have in the past. Set OldMergeSchemas to true for the old behavior.
-	// Please see https://github.com/oapi-codegen/oapi-codegen/issues/531
+	// Please see https://github.com/dewrich/oapi-codegen/issues/531
 	OldMergeSchemas bool `yaml:"old-merge-schemas,omitempty"`
 	// In the past, when a schema combined `allOf` with sibling fields at the
 	// same level (`properties`, `required`, `additionalProperties`,
@@ -226,26 +227,26 @@ type CompatibilityOptions struct {
 	// a distinct struct embedding Y with extra fields, which is not
 	// interchangeable with Y in downstream Go code. Set OldAllOfSiblingMerging
 	// to true to restore the prior behavior.
-	// Please see https://github.com/oapi-codegen/oapi-codegen/issues/697
+	// Please see https://github.com/dewrich/oapi-codegen/issues/697
 	OldAllOfSiblingMerging bool `yaml:"old-allof-sibling-merging,omitempty"`
 	// Enum values can generate conflicting typenames, so we've updated the
 	// code for enum generation to avoid these conflicts, but it will result
 	// in some enum types being renamed in existing code. Set OldEnumConflicts to true
 	// to revert to old behavior. Please see:
-	// Please see https://github.com/oapi-codegen/oapi-codegen/issues/549
+	// Please see https://github.com/dewrich/oapi-codegen/issues/549
 	OldEnumConflicts bool `yaml:"old-enum-conflicts,omitempty"`
 	// It was a mistake to generate a go type definition for every $ref in
 	// the OpenAPI schema. New behavior uses type aliases where possible, but
 	// this can generate code which breaks existing builds. Set OldAliasing to true
 	// for old behavior.
-	// Please see https://github.com/oapi-codegen/oapi-codegen/issues/549
+	// Please see https://github.com/dewrich/oapi-codegen/issues/549
 	OldAliasing bool `yaml:"old-aliasing,omitempty"`
 	// When an object contains no members, and only an additionalProperties specification,
 	// it is flattened to a map
 	DisableFlattenAdditionalProperties bool `yaml:"disable-flatten-additional-properties,omitempty"`
 	// When an object property is both required and readOnly the go model is generated
 	// as a pointer. Set DisableRequiredReadOnlyAsPointer to true to mark them as non pointer.
-	// Please see https://github.com/oapi-codegen/oapi-codegen/issues/604
+	// Please see https://github.com/dewrich/oapi-codegen/issues/604
 	DisableRequiredReadOnlyAsPointer bool `yaml:"disable-required-readonly-as-pointer,omitempty"`
 	// When set to true, always prefix enum values with their type name instead of only
 	// when typenames would be conflicting.
@@ -253,12 +254,12 @@ type CompatibilityOptions struct {
 	// Our generated code for Chi has historically inverted the order in which Chi middleware is
 	// applied such that the last invoked middleware ends up executing first in the Chi chain
 	// This resolves the behavior such that middlewares are chained in the order they are invoked.
-	// Please see https://github.com/oapi-codegen/oapi-codegen/issues/786
+	// Please see https://github.com/dewrich/oapi-codegen/issues/786
 	ApplyChiMiddlewareFirstToLast bool `yaml:"apply-chi-middleware-first-to-last,omitempty"`
 	// Our generated code for gorilla/mux has historically inverted the order in which gorilla/mux middleware is
 	// applied such that the last invoked middleware ends up executing first in the middlewares chain
 	// This resolves the behavior such that middlewares are chained in the order they are invoked.
-	// Please see https://github.com/oapi-codegen/oapi-codegen/issues/841
+	// Please see https://github.com/dewrich/oapi-codegen/issues/841
 	ApplyGorillaMiddlewareFirstToLast bool `yaml:"apply-gorilla-middleware-first-to-last,omitempty"`
 	// CircularReferenceLimit allows controlling the limit for circular reference checking.
 	// In some OpenAPI specifications, we have a higher number of circular
@@ -297,7 +298,7 @@ type CompatibilityOptions struct {
 	// (required: false), so the corrected behavior generates optional headers as
 	// pointers. Set this to true to restore the old behavior where all headers
 	// are treated as required.
-	// Please see https://github.com/oapi-codegen/oapi-codegen/issues/2267
+	// Please see https://github.com/dewrich/oapi-codegen/issues/2267
 	HeadersImplicitlyRequired bool `yaml:"headers-implicitly-required,omitempty"`
 }
 

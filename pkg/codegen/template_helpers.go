@@ -26,7 +26,7 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 
-	"github.com/oapi-codegen/oapi-codegen/v2/pkg/util"
+	"github.com/dewrich/oapi-codegen/v2/pkg/util"
 )
 
 const (
@@ -250,7 +250,7 @@ func genResponseUnmarshal(op *OperationDefinition) string {
 	}
 
 	// Now build the switch statement in order of most-to-least specific:
-	// See: https://github.com/oapi-codegen/oapi-codegen/issues/127 for why we handle this in two separate
+	// See: https://github.com/dewrich/oapi-codegen/issues/127 for why we handle this in two separate
 	// groups.
 	fmt.Fprintf(buffer, "switch {\n")
 	for _, caseClauseKey := range SortedMapKeys(handledCaseClauses) {

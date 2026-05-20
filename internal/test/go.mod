@@ -1,11 +1,11 @@
-module github.com/oapi-codegen/oapi-codegen/v2/internal/test
+module github.com/dewrich/oapi-codegen/v2/internal/test
 
 go 1.25.9
 
-replace github.com/oapi-codegen/oapi-codegen/v2 => ../../
+replace github.com/dewrich/oapi-codegen/v2 => ../../
 
 require (
-	github.com/getkin/kin-openapi v0.138.0
+	github.com/getkin/kin-openapi v0.137.0
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-chi/chi/v5 v5.2.5
 	github.com/gofiber/fiber/v2 v2.52.13
@@ -15,13 +15,15 @@ require (
 	github.com/labstack/echo/v4 v4.15.1
 	github.com/labstack/echo/v5 v5.1.0
 	github.com/oapi-codegen/nullable v1.1.0
-	github.com/oapi-codegen/oapi-codegen/v2 v2.0.0-00010101000000-000000000000
-	github.com/oapi-codegen/runtime v1.4.1
+	github.com/oapi-codegen/runtime v1.4.0
 	github.com/oapi-codegen/testutil v1.1.0
 	github.com/stretchr/testify v1.11.1
+	github.com/dewrich/oapi-codegen/v2 v2.0.0-00010101000000-000000000000
 	go.yaml.in/yaml/v3 v3.0.4
 	golang.org/x/time v0.15.0
 )
+
+require github.com/rs/zerolog v1.35.1 // indirect
 
 require (
 	github.com/BurntSushi/toml v1.6.0 // indirect
@@ -102,14 +104,14 @@ require (
 	github.com/yosssi/ace v0.0.5 // indirect
 	go.mongodb.org/mongo-driver/v2 v2.6.0 // indirect
 	golang.org/x/arch v0.26.0 // indirect
-	golang.org/x/crypto v0.51.0 // indirect
+	golang.org/x/crypto v0.50.0 // indirect
 	golang.org/x/exp v0.0.0-20260410095643-746e56fc9e2f // indirect
-	golang.org/x/mod v0.36.0 // indirect
-	golang.org/x/net v0.54.0 // indirect
+	golang.org/x/mod v0.35.0 // indirect
+	golang.org/x/net v0.53.0 // indirect
 	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.44.0 // indirect
-	golang.org/x/text v0.37.0 // indirect
-	golang.org/x/tools v0.45.0 // indirect
+	golang.org/x/sys v0.43.0 // indirect
+	golang.org/x/text v0.36.0 // indirect
+	golang.org/x/tools v0.44.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/ini.v1 v1.67.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect

@@ -29,12 +29,12 @@ servers:
     # an example of a variable declared but NOT referenced in the URL.
     # `oapi-codegen` filters these out so they don't pollute the
     # generated function signature with no-op parameters
-    # (https://github.com/oapi-codegen/oapi-codegen/issues/2004).
+    # (https://github.com/dewrich/oapi-codegen/issues/2004).
     noDefault: {}
 # A server whose `port` enum literally includes the string `default`.
 # The previous codegen tripped over this because the enum constant for
 # the value `default` collided with the named default-pointer constant
-# (https://github.com/oapi-codegen/oapi-codegen/issues/2003); the fix
+# (https://github.com/dewrich/oapi-codegen/issues/2003); the fix
 # routes server-URL enums through the generic enum path and renames
 # the default-pointer constant to `…VariableDefaultValue`.
 - url: https://api.example.com/{port}
@@ -49,7 +49,7 @@ servers:
 # is no entry in `variables`. The previous codegen happily emitted a
 # function that left `{token}` in the URL, which then tripped the
 # trailing `{`/`}` runtime check on every call
-# (https://github.com/oapi-codegen/oapi-codegen/issues/2005). The fix
+# (https://github.com/dewrich/oapi-codegen/issues/2005). The fix
 # emits the undeclared placeholder as a plain `string` parameter so
 # callers can fill it in.
 - url: https://{tenant}.api.example.com

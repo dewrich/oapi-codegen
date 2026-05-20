@@ -10,7 +10,7 @@ import (
 )
 
 // TestUnionResponseMarshalsUnderlying is a regression test for
-// https://github.com/oapi-codegen/oapi-codegen/issues/970.
+// https://github.com/dewrich/oapi-codegen/issues/970.
 //
 // The strict-server response type for a content schema that is a $ref to a
 // oneOf/anyOf union must encode as the union's JSON, not {}. Named defined

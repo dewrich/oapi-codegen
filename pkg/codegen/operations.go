@@ -27,7 +27,7 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 
-	"github.com/oapi-codegen/oapi-codegen/v2/pkg/util"
+	"github.com/dewrich/oapi-codegen/v2/pkg/util"
 )
 
 type ParameterDefinition struct {
@@ -307,21 +307,6 @@ func DescribeSecurityDefinition(securityRequirements openapi3.SecurityRequiremen
 	}
 
 	return outDefs
-}
-
-// filterOutUndefinedSecuritySchemes drops any SecurityDefinition whose ProviderName
-// is not present in defined. A `security` requirement that references an
-// unknown scheme would otherwise produce a constant declaration and middleware
-// references against a context-key type that is never emitted (the type is
-// only generated for entries in components/securitySchemes).
-func filterOutUndefinedSecuritySchemes(defs []SecurityDefinition, defined map[string]struct{}) []SecurityDefinition {
-	out := make([]SecurityDefinition, 0, len(defs))
-	for _, d := range defs {
-		if _, ok := defined[d.ProviderName]; ok {
-			out = append(out, d)
-		}
-	}
-	return out
 }
 
 // OperationDefinition describes an Operation
@@ -760,16 +745,6 @@ func OperationDefinitions(swagger *openapi3.T) ([]OperationDefinition, error) {
 		return operations, nil
 	}
 
-	// Collect the names of security schemes actually defined under
-	// components/securitySchemes. Requirements that reference an undefined
-	// scheme are filtered out below so generated code stays compilable.
-	definedSecuritySchemes := map[string]struct{}{}
-	if swagger.Components != nil {
-		for name := range swagger.Components.SecuritySchemes {
-			definedSecuritySchemes[name] = struct{}{}
-		}
-	}
-
 	// Track alias counters for generating unique client method names
 	// when multiple paths $ref the same path item.
 	aliasCounters := map[string]int{}
@@ -906,7 +881,6 @@ func OperationDefinitions(swagger *openapi3.T) ([]OperationDefinition, error) {
 				opDef.SecurityDefinitions = DescribeSecurityDefinition(swagger.Security)
 
 			}
-			opDef.SecurityDefinitions = filterOutUndefinedSecuritySchemes(opDef.SecurityDefinitions, definedSecuritySchemes)
 
 			if op.RequestBody != nil {
 				opDef.BodyRequired = op.RequestBody.Value.Required

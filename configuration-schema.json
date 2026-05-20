@@ -74,19 +74,19 @@
       "properties": {
         "old-merge-schemas": {
           "type": "boolean",
-          "description": "In the past, we merged schemas for `allOf` by inlining each schema within the schema list. This approach, though, is incorrect because `allOf` merges at the schema definition level, not at the resulting model level. So, new behavior merges OpenAPI specs but generates different code than we have in the past. Set OldMergeSchemas to true for the old behavior. Please see https://github.com/oapi-codegen/oapi-codegen/issues/531"
+          "description": "In the past, we merged schemas for `allOf` by inlining each schema within the schema list. This approach, though, is incorrect because `allOf` merges at the schema definition level, not at the resulting model level. So, new behavior merges OpenAPI specs but generates different code than we have in the past. Set OldMergeSchemas to true for the old behavior. Please see https://github.com/dewrich/oapi-codegen/issues/531"
         },
         "old-allof-sibling-merging": {
           "type": "boolean",
-          "description": "In the past, when a schema combined `allOf` with sibling fields at the same level (`properties`, `required`, `additionalProperties`, `description`), those siblings were silently discarded and the schema was emitted as a Go type alias to its sole `allOf` target. New behavior merges the parent's siblings with the `allOf` members so the generated type carries every field declared in the spec. This is a more accurate translation of OpenAPI semantics, but it changes the shape of generated types: a schema that previously produced `type X = Y` may now produce a distinct struct embedding Y with extra fields, which is not interchangeable with Y in downstream Go code. Set OldAllOfSiblingMerging to true to restore the prior behavior. Please see https://github.com/oapi-codegen/oapi-codegen/issues/697"
+          "description": "In the past, when a schema combined `allOf` with sibling fields at the same level (`properties`, `required`, `additionalProperties`, `description`), those siblings were silently discarded and the schema was emitted as a Go type alias to its sole `allOf` target. New behavior merges the parent's siblings with the `allOf` members so the generated type carries every field declared in the spec. This is a more accurate translation of OpenAPI semantics, but it changes the shape of generated types: a schema that previously produced `type X = Y` may now produce a distinct struct embedding Y with extra fields, which is not interchangeable with Y in downstream Go code. Set OldAllOfSiblingMerging to true to restore the prior behavior. Please see https://github.com/dewrich/oapi-codegen/issues/697"
         },
         "old-enum-conflicts": {
           "type": "boolean",
-          "description": "Enum values can generate conflicting typenames, so we've updated the code for enum generation to avoid these conflicts, but it will result in some enum types being renamed in existing code. Set OldEnumConflicts to true to revert to old behavior. Please see: Please see https://github.com/oapi-codegen/oapi-codegen/issues/549"
+          "description": "Enum values can generate conflicting typenames, so we've updated the code for enum generation to avoid these conflicts, but it will result in some enum types being renamed in existing code. Set OldEnumConflicts to true to revert to old behavior. Please see: Please see https://github.com/dewrich/oapi-codegen/issues/549"
         },
         "old-aliasing": {
           "type": "boolean",
-          "description": "It was a mistake to generate a go type definition for every $ref in the OpenAPI schema. New behavior uses type aliases where possible, but this can generate code which breaks existing builds. Set OldAliasing to true for old behavior. Please see https://github.com/oapi-codegen/oapi-codegen/issues/549"
+          "description": "It was a mistake to generate a go type definition for every $ref in the OpenAPI schema. New behavior uses type aliases where possible, but this can generate code which breaks existing builds. Set OldAliasing to true for old behavior. Please see https://github.com/dewrich/oapi-codegen/issues/549"
         },
         "disable-flatten-additional-properties": {
           "type": "boolean",
@@ -94,7 +94,7 @@
         },
         "disable-required-readonly-as-pointer": {
           "type": "boolean",
-          "description": "When an object property is both required and readOnly the go model is generated as a pointer. Set DisableRequiredReadOnlyAsPointer to true to mark them as non pointer. Please see https://github.com/oapi-codegen/oapi-codegen/issues/604"
+          "description": "When an object property is both required and readOnly the go model is generated as a pointer. Set DisableRequiredReadOnlyAsPointer to true to mark them as non pointer. Please see https://github.com/dewrich/oapi-codegen/issues/604"
         },
         "always-prefix-enum-values": {
           "type": "boolean",
@@ -102,11 +102,11 @@
         },
         "apply-chi-middleware-first-to-last": {
           "type": "boolean",
-          "description": "Our generated code for Chi has historically inverted the order in which Chi middleware is applied such that the last invoked middleware ends up executing first in the Chi chain This resolves the behavior such that middlewares are chained in the order they are invoked. Please see https://github.com/oapi-codegen/oapi-codegen/issues/786"
+          "description": "Our generated code for Chi has historically inverted the order in which Chi middleware is applied such that the last invoked middleware ends up executing first in the Chi chain This resolves the behavior such that middlewares are chained in the order they are invoked. Please see https://github.com/dewrich/oapi-codegen/issues/786"
         },
         "apply-gorilla-middleware-first-to-last": {
           "type": "boolean",
-          "description": "Our generated code for gorilla/mux has historically inverted the order in which gorilla/mux middleware is applied such that the last invoked middleware ends up executing first in the middlewares chain This resolves the behavior such that middlewares are chained in the order they are invoked. Please see https://github.com/oapi-codegen/oapi-codegen/issues/841"
+          "description": "Our generated code for gorilla/mux has historically inverted the order in which gorilla/mux middleware is applied such that the last invoked middleware ends up executing first in the middlewares chain This resolves the behavior such that middlewares are chained in the order they are invoked. Please see https://github.com/dewrich/oapi-codegen/issues/841"
         },
         "circular-reference-limit": {
           "type": "integer",
@@ -122,7 +122,7 @@
         },
         "headers-implicitly-required": {
           "type": "boolean",
-          "description": "Treats all response headers as required, ignoring the `required` property from the header definition. Prior to v2.6.0, oapi-codegen generated all response headers as direct values (implicitly required). The OpenAPI specification defaults headers to optional (required: false), so the corrected behavior generates optional headers as pointers. Set this to true to restore the old behavior where all headers are treated as required.\nPlease see https://github.com/oapi-codegen/oapi-codegen/issues/2267"
+          "description": "Treats all response headers as required, ignoring the `required` property from the header definition. Prior to v2.6.0, oapi-codegen generated all response headers as direct values (implicitly required). The OpenAPI specification defaults headers to optional (required: false), so the corrected behavior generates optional headers as pointers. Set this to true to restore the old behavior where all headers are treated as required.\nPlease see https://github.com/dewrich/oapi-codegen/issues/2267"
         }
       }
     },
@@ -256,10 +256,6 @@
         "skip-client-response-content-type": {
           "type": "boolean",
           "description": "Disable the generation of a `ContentType()` method on response objects for `ClientWithResponses`, which is otherwise generated by default."
-        },
-        "skip-response-body-getters": {
-          "type": "boolean",
-          "description": "Disable the generation of `GetBody()` and `Get<TypeName>()` getter methods on response objects for `ClientWithResponses`, which are otherwise generated by default."
         },
         "prefer-skip-optional-pointer": {
           "type": "boolean",
